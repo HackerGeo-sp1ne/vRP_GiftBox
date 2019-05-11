@@ -121,17 +121,3 @@ Citizen.CreateThread(function()
 		startGiftBox()
 	end
 end)
-
-_GIFTBOXv = '0.1.6'
-PerformHttpRequest( "https://www.hackergeo.com/version.txt", function( err, text, headers )
-	Citizen.Wait( 1000 ) -- just to reduce clutter in the console on startup 
-	RconPrint( "\nYour GiftBox Version: " .. _GIFTBOXv)
-	RconPrint( "\nNew GiftBox Version: " .. text)
-	
-	if ( text ~= _GIFTBOXv ) then
-		RconPrint( "\n\n\t|||||||||||||||||||||||||||||||||\n\t||     Giftbox is Outdated     ||\n\t|| Download the latest version ||\n\t||    From the HackerGeo.com   ||\n\t|||||||||||||||||||||||||||||||||\n\n" )
-	else
-		RconPrint( "\n\n\t|||||||||||||||||||||||||||||||||\n\t||                             ||\n\t||    GiftBox is up to date    ||\n\t||                             ||\n\t|||||||||||||||||||||||||||||||||\n\n" )
-		RconPrint( "\nGiftBox is up to date!\n" )
-	end
-end, "GET", "", { what = 'this' } )
